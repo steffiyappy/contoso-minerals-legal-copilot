@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contoso Minerals · M365 Copilot Legal Immersion</title>
+<style>
+:root{--radius:12px;--shadow:0 2px 8px rgba(0,0,0,.12);--brand:#B45309}
+@media(prefers-color-scheme:dark){:root{--bg:#0b1020;--panel:#0e1633;--panel2:#0a1228;--ink:#e2e8f0;--muted:#94a3b8;--border:#1e2d4a;--sidebar-a:#0e1530;--sidebar-b:#0a0f24;--accent:#3b82f6;--accent2:#60a5fa;--nav-hover:#172244;--badge-bg:#0a0f24;--cp-info:#0e1c2c;--cp-warn:#2b220e;--cp-bad:#2b1414;--cp-good:#0e2418;--code:#0d1535;--good:#22c55e;--warn:#f59e0b;--danger:#ef4444;--callout-info:#0e1c2c;--callout-warn:#2b220e;--callout-bad:#2b1414;--callout-good:#0e2418}}
+@media(prefers-color-scheme:light){:root{--bg:#f0f4f8;--panel:#ffffff;--panel2:#f0f6ff;--ink:#1a202c;--muted:#64748b;--border:#d1d9e6;--sidebar-a:#1e3a5f;--sidebar-b:#0f2545;--accent:#2563eb;--accent2:#1d4ed8;--nav-hover:#dbeafe;--badge-bg:#e8f0fe;--cp-info:#eff6ff;--cp-warn:#fffbeb;--cp-bad:#fef2f2;--cp-good:#f0fdf4;--code:#1e2b55;--good:#16a34a;--warn:#d97706;--danger:#dc2626;--callout-info:#eff6ff;--callout-warn:#fffbeb;--callout-bad:#fef2f2;--callout-good:#f0fdf4}}
+*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:15px/1.55 "Inter","Segoe UI",system-ui,sans-serif;}
+a{color:var(--accent2);text-decoration:none}a:hover{text-decoration:underline}
+code,pre{font-family:"JetBrains Mono","Consolas",monospace;font-size:13px}
+.layout{display:grid;grid-template-columns:280px 1fr;min-height:100vh}
+aside{background:linear-gradient(180deg,var(--sidebar-a),var(--sidebar-b));border-right:1px solid var(--border);padding:24px 18px;position:sticky;top:0;height:100vh;overflow-y:auto;color:#e2e8f0}
+.brand{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.brand .logo{width:36px;height:36px;border-radius:9px;background:var(--brand);display:grid;place-items:center;font-weight:900;color:#fff;font-size:11px;letter-spacing:-.5px}
+.brand h1{font-size:15px;margin:0;letter-spacing:.2px;color:#fff}
+.tag{font-size:11px;color:#94a3b8;margin-bottom:18px}
+nav h3{font-size:10px;letter-spacing:1.2px;color:#94a3b8;text-transform:uppercase;margin:18px 0 8px}
+nav a{display:block;color:#e2e8f0;padding:8px 10px;border-radius:9px;font-size:14px;margin-bottom:2px;border:1px solid transparent}
+nav a:hover{background:rgba(255,255,255,.12);text-decoration:none;border-color:rgba(255,255,255,.2);color:#fff}
+main{padding:28px 40px 80px;max-width:1080px}
+.hero{background:radial-gradient(800px 320px at 0% 0%,rgba(180,83,9,.35),transparent 60%),radial-gradient(700px 280px at 100% 0%,rgba(0,100,200,.2),transparent 60%),var(--panel);border:1px solid var(--border);border-radius:18px;padding:30px;margin-bottom:24px}
+.hero .pill{display:inline-block;background:var(--badge-bg);border:1px solid var(--border);color:var(--accent2);font-size:11px;letter-spacing:1.2px;padding:4px 10px;border-radius:999px;margin-bottom:12px}
+.hero h2{font-size:30px;margin:0 0 8px;line-height:1.2}
+.hero p{color:var(--muted);margin:0;max-width:780px}
+.meta-row{display:flex;flex-wrap:wrap;gap:18px;margin-top:18px;color:var(--muted);font-size:13px}
+.meta-row span b{color:var(--ink)}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 6px;font-size:18px}.card .lead{color:var(--muted);margin:0 0 14px}
+.card h4{margin:18px 0 6px;font-size:15px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;font-weight:700}
+ul{padding-left:20px;margin:8px 0}li{margin:4px 0}
+.modulehead{display:flex;align-items:center;gap:14px;margin:32px 0 12px}
+.modulehead .num{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--accent));display:grid;place-items:center;font-weight:800;font-size:20px;color:#fff}
+.modulehead h2{margin:0;font-size:22px}
+.modulehead small{display:block;color:var(--muted);font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.activity{border:1px solid var(--border);border-radius:12px;padding:18px;margin:14px 0;background:var(--panel)}
+.activity .head{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}
+.activity .num{background:var(--accent);color:#fff;font-weight:800;font-size:12px;padding:3px 9px;border-radius:6px}
+.activity .time{color:var(--muted);font-size:12px}
+.activity .file{font-size:12px;color:var(--accent2);background:var(--badge-bg);border:1px solid var(--border);padding:3px 9px;border-radius:6px}
+.activity h4{margin:0;font-size:16px;color:var(--ink);font-weight:600}
+.activity p{margin:6px 0;color:var(--muted);font-size:14px}
+.prompt{position:relative;background:var(--code);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:14px 44px 14px 16px;margin:10px 0;font-family:"JetBrains Mono","Consolas",monospace;font-size:13px;color:#c9d6ff;white-space:pre-wrap;line-height:1.6}
+.prompt .copy{position:absolute;top:8px;right:8px;background:#1a2552;color:#e2e8f0;border:1px solid rgba(255,255,255,.2);border-radius:6px;padding:4px 10px;font-size:11px;cursor:pointer;font-family:inherit;transition:all .2s}
+.prompt .copy:hover{background:var(--accent);color:#fff}.prompt .copy.copied{background:var(--good);color:#0a0f24}
+.callout{border-left:4px solid var(--accent2);background:var(--callout-info);padding:12px 16px;margin:12px 0;border-radius:8px;color:var(--ink);font-size:14px}
+.callout.warn{border-color:var(--warn);background:var(--callout-warn)}
+.callout.good{border-color:var(--good);background:var(--callout-good)}
+.callout.danger{border-color:var(--danger);background:var(--callout-bad)}
+.callout b{color:var(--ink)}
+table{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+th{color:var(--accent2);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.8px}
+td a{color:var(--ink);font-weight:600}td a:hover{color:var(--accent2)}
+.agenda{display:grid;grid-template-columns:90px 1fr 100px;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.agenda>div{padding:10px 14px;border-bottom:1px solid var(--border)}
+.agenda>div:nth-child(3n+1){color:var(--accent2);font-weight:700;background:var(--panel)}
+.agenda>div:nth-child(3n+3){color:var(--muted);text-align:right}
+.agenda>div:nth-last-child(-n+3){border-bottom:0}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:14px}
+.tool-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px}
+.tool-card .icon{font-size:22px;margin-bottom:6px}
+.tool-card h5{margin:0 0 4px;font-size:14px;color:var(--ink)}
+.tool-card p{margin:0;font-size:12px;color:var(--muted);line-height:1.5}
+.badge{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;letter-spacing:.5px}
+.badge.blue{background:rgba(0,100,200,.2);color:var(--accent2);border:1px solid var(--accent)}
+.badge.green{background:rgba(34,197,94,.15);color:var(--good);border:1px solid var(--good)}
+.badge.amber{background:rgba(245,158,11,.15);color:var(--warn);border:1px solid var(--warn)}
+.filetag{background:var(--badge-bg);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;margin-bottom:14px;color:var(--ink)}
+#lock{position:fixed;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(180,83,9,.45),transparent 60%),#0b1020;z-index:9999;display:flex;align-items:center;justify-content:center}
+.lock-box{background:var(--panel);border:1px solid var(--border);border-radius:20px;padding:40px 44px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.lock-box .blogo{width:56px;height:56px;border-radius:14px;background:var(--brand);display:grid;place-items:center;font-weight:900;font-size:14px;color:#fff;margin:0 auto 18px}
+.lock-box h2{margin:0 0 6px;font-size:22px}
+.lock-box p{color:var(--muted);font-size:14px;margin:0 0 22px}
+.lock-box input{width:100%;background:var(--badge-bg);border:1px solid var(--border);border-radius:10px;color:var(--ink);font-size:15px;padding:12px 16px;margin-bottom:12px;outline:none;font-family:inherit}
+.lock-box input:focus{border-color:var(--accent)}
+.lock-box button{width:100%;background:var(--brand);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;padding:13px;cursor:pointer;transition:background .2s}
+.lock-box button:hover{background:var(--accent)}
+.lock-box .err{color:var(--danger);font-size:13px;margin-top:8px;min-height:18px}
+.lock-box .conf{font-size:11px;color:var(--muted);margin-top:14px}
+@media(max-width:760px){.layout{grid-template-columns:1fr}aside{position:static;height:auto}main{padding:16px 18px 60px}.hero h2{font-size:22px}}
+</style>
+</head>
+<body>
+
+<!-- PASSWORD GATE -->
+<div id="lock">
+  <div class="lock-box">
+    <div class="blogo">CM</div>
+    <h2>Contoso Minerals · Legal Copilot Immersion</h2>
+    <p>Divisi Corporate Legal · 90-minute executive workshop<br>Enter the session password to continue.</p>
+    <input type="password" id="pw" placeholder="Session password" autocomplete="off"/>
+    <button onclick="unlock()">Enter Workshop →</button>
+    <div class="err" id="err"></div>
+    <div class="conf">Confidential · Contoso Minerals (Persero) · Internal use only</div>
+  </div>
+</div>
+
+<div class="layout" id="main" style="display:none">
+<aside>
+  <div class="brand"><div class="logo">CM</div><h1>M365 Copilot<br>Legal Workshop</h1></div>
+  <div class="tag">Divisi Corporate Legal · 90 minutes</div>
+  <nav>
+    <h3>Overview</h3>
+    <a href="#overview">About this session</a>
+    <a href="#agenda">Agenda</a>
+    <a href="#story">The Story</a>
+    <a href="#tools">Tools used today</a>
+    <h3>Get Started</h3>
+    <a href="#getstarted">🔑 Log in &amp; setup</a>
+    <h3>Exercises</h3>
+    <a href="#ex1">Exercise 1 · Free Chat (Regulation)</a>
+    <a href="#ex2">Exercise 2 · Legal Memo</a>
+    <a href="#ex3">Exercise 3 · NDA Red-Flag</a>
+    <a href="#ex4">Exercise 4 · Litigation Analytics</a>
+    <a href="#ex5">Exercise 5 · Cowork Dashboard</a>
+    <h3>Resources</h3>
+    <a href="#files">Sample files</a>
+    <a href="#tips">Tips &amp; reminders</a>
+  </nav>
+</aside>
+
+<main>
+
+<section id="overview">
+<div class="hero">
+  <span class="pill">LEGAL FOCUS · INDONESIAN LAW</span>
+  <h2>Contoso Minerals · M365 Copilot Legal Immersion</h2>
+  <p>A practical, 90-minute hands-on immersion designed specifically for the Corporate Legal Division of an Indonesian mining holding. We move from <b>Free Copilot Chat</b> → <b>Paid M365 Copilot</b> → <b>Cowork finale</b>. No custom agents required — every capability runs on out-of-the-box M365 Copilot.</p>
+  <div class="meta-row">
+    <span><b>Format</b> Hands-on workshop</span>
+    <span><b>Duration</b> 90 min</span>
+    <span><b>Audience</b> Divisi Corporate Legal</span>
+    <span><b>Tool</b> Microsoft 365 Copilot (Basic + Premium)</span>
+  </div>
+</div>
+
+<div class="card">
+  <h3>About this workshop</h3>
+  <p class="lead">Built for the specific reality of Contoso Minerals Legal: a state-owned mining holding with multiple Anak Holding (AH), regulated by UU Minerba, with active litigation, NDA traffic, and Director-level reporting needs.</p>
+  <h4>What you will leave with</h4>
+  <ul>
+    <li>Fluency with <b>Free Copilot Chat</b> for fast regulatory research (Permen ESDM, Hukumonline, JDIH)</li>
+    <li>A complete <b>Legal Memo</b> drafted in Word grounded on the internal Legal Knowledge Base</li>
+    <li>A marked-up <b>NDA</b> with negotiation cover email — produced in 15 minutes</li>
+    <li>A working <b>litigation analytics</b> view built with the new Excel Copilot <b>Edit + Plan</b> features</li>
+    <li>An <b>Executive Legal Dashboard</b> (self-contained HTML) delivered by <b>Cowork</b> for the Direktur Utama</li>
+  </ul>
+  <h4>What this workshop is not</h4>
+  <ul>
+    <li>It is <b>not</b> a Copilot Studio agent-building session — every exercise uses paid M365 Copilot out-of-the-box</li>
+    <li>It is <b>not</b> a substitute for legal judgement: Copilot drafts, the Legal Counsel decides</li>
+    <li>It is <b>not</b> connected to live Contoso systems today: all data is sample / anonymised</li>
+  </ul>
+</div>
+</section>
+
+<section id="agenda">
+<div class="modulehead"><div class="num">📋</div><h2>Agenda<small>90 minutes · 5 exercises</small></h2></div>
+<div class="card">
+<div class="agenda">
+  <div>5 min</div><div><b>Welcome &amp; Scenario</b> — one-slide story</div><div>00:00–00:05</div>
+  <div>10 min</div><div><b>Copilot Pitch (Legal lens)</b> — Free Chat vs Paid M365 Copilot</div><div>00:05–00:15</div>
+  <div>10 min</div><div><b>Exercise 1</b> · Regulatory Research (Free Copilot Chat)</div><div>00:15–00:25</div>
+  <div>15 min</div><div><b>Exercise 2</b> · Legal Memo grounded in Legal KB (Paid)</div><div>00:25–00:40</div>
+  <div>15 min</div><div><b>Exercise 3</b> · NDA Red-Flag Review vs M&amp;A Playbook (Paid)</div><div>00:40–00:55</div>
+  <div>15 min</div><div><b>Exercise 4</b> · Litigation Analytics — Excel Edit + Plan (Paid)</div><div>00:55–01:10</div>
+  <div>25 min</div><div><b>Exercise 5</b> · COWORK FINALE — Executive Legal Dashboard (HTML)</div><div>01:10–01:35</div>
+  <div>10 min</div><div><b>Q&amp;A and Wrap-up</b></div><div>01:35–01:45</div>
+</div>
+<div class="callout" style="margin-top:14px"><b>Pace tip:</b> The first 4 exercises are short and pacy. Cowork in Exercise 5 is the highlight — give it air.</div>
+</div>
+</section>
+
+<section id="tools">
+<div class="modulehead"><div class="num">🛠</div><h2>Tools Used Today<small>M365 Copilot surfaces</small></h2></div>
+<div class="card">
+<div class="tools-grid">
+  <div class="tool-card"><div class="icon">☁️</div><h5>Copilot Chat (Free / Web)</h5><p>Web-grounded chat for any signed-in Microsoft account. No SKU needed. Used in Exercise 1 to research the new Permen ESDM.</p></div>
+  <div class="tool-card"><div class="icon">☁️</div><h5>Copilot Chat (Work)</h5><p>Paid M365 Copilot Chat with access to OneDrive/SharePoint files via the <code>/</code> reference. Used to ground on Legal KB and Playbook.</p></div>
+  <div class="tool-card"><div class="icon">📝</div><h5>Word Copilot</h5><p>In-app drafting and mark-up. Used for Legal Memo and NDA negotiation mark-up.</p></div>
+  <div class="tool-card"><div class="icon">📊</div><h5>Excel Copilot — Edit + Plan</h5><p>The 2025/2026 Edit and Plan modes let Copilot propose and execute multi-step analytics in your workbook.</p></div>
+  <div class="tool-card"><div class="icon">📈</div><h5>Analyst Agent</h5><p>Out-of-the-box AI analyst — drop in a dataset and ask complex questions. No setup required.</p></div>
+  <div class="tool-card"><div class="icon">🔍</div><h5>Researcher</h5><p>Deep-research mode with Critique (dual-model) for verified, source-grounded reports.</p></div>
+  <div class="tool-card"><div class="icon">🎥</div><h5>Teams Recap</h5><p>Auto-transcribes meetings and extracts action items — feeds Word for formal Notulen Rapat.</p></div>
+  <div class="tool-card"><div class="icon">🚀</div><h5>Cowork</h5><p>Multi-step delegation. Describe the outcome — Cowork plans the steps, checks in, and executes.</p></div>
+</div>
+<div class="callout warn" style="margin-top:16px"><b>Data privacy reminder:</b> Do not paste real Contoso commercially sensitive data into Copilot during this session. Use only the sample files provided. M365 Copilot is compliant with UU No. 27/2022 (PDP) — prompts and data stay within the tenant and are not used to train AI models.</div>
+</div>
+</section>
+
+<section id="story">
+<div class="modulehead" style="margin-top:8px">
+  <div class="num" style="background:linear-gradient(135deg,var(--brand),var(--accent));font-size:14px">▶</div>
+  <h2>The Story<small>One afternoon. Five moments. From regulation to executive dashboard.</small></h2>
+</div>
+<div class="card">
+<p class="lead"><b>Ratna Sari, VP Corporate Legal of Contoso Minerals (Persero)</b>, opens her laptop after lunch. A new Permen ESDM has just tightened hilirisasi rules and raised nickel royalty. She has one afternoon to brief the Direktur Utama:</p>
+<ol>
+  <li><b>Research</b> the new regulation — using Free Copilot Chat.</li>
+  <li><b>Draft a Legal Memo</b> in Word, grounded on the internal Legal Knowledge Base.</li>
+  <li><b>Red-flag a counterparty NDA</b> against the M&amp;A Playbook and send a mark-up.</li>
+  <li><b>Analyse litigation</b> exposure across all 6 Anak Holding using Excel Plan + Analyst.</li>
+  <li><b>Delegate to Cowork</b> to produce an Executive Legal Dashboard (HTML) for the Direktur Utama.</li>
+</ol>
+<div class="callout good"><b>The value:</b> One VP Legal. One afternoon. Research → draft → review → analyse → deliver an executive dashboard. All inside Microsoft 365. No custom agent required.</div>
+</div>
+</section>
+
+<section id="getstarted">
+<div class="modulehead"><div class="num">📁</div><h2>Before You Start<small>Download sample files · Save to OneDrive · Begin</small></h2></div>
+<div class="card">
+<h4>Step 1 — Download the sample files</h4>
+<ol>
+  <li>Scroll to the <a href="#files"><b>Sample Files</b></a> section on this page and download each file.</li>
+  <li>Upload them all to your OneDrive (or a SharePoint document library).</li>
+  <li>Open each file from OneDrive when its exercise begins.</li>
+</ol>
+<div class="callout warn"><b>Why OneDrive?</b> M365 Copilot can only read files stored in OneDrive or SharePoint — files on your desktop are not visible to Copilot.</div>
+<h4>Step 2 — Sign in</h4>
+<p>For Exercise 1, open <a href="https://copilot.microsoft.com" target="_blank">copilot.microsoft.com</a>. For Exercises 2–5, open <a href="https://m365.cloud.microsoft" target="_blank">m365.cloud.microsoft</a> and ensure your account shows the <b>M365 Copilot</b> license.</p>
+</div>
+</section>
+
+<!-- EXERCISE 1 -->
+<section id="ex1">
+<div class="modulehead"><div class="num">1</div><h2>Exercise 1 · Regulatory Research (Free)<small>10 min · Copilot Chat (Web)</small></h2></div>
+<div class="callout good"><b>Tier:</b> <span class="badge green">FREE</span> — Anyone signed in with a Microsoft account. No paid SKU needed. Great way to onboard your Basic-license colleagues.</div>
+<div class="card">
+<p class="lead">Use the free, web-grounded Copilot Chat to research the latest changes to Indonesian mining regulation that affect Contoso's nickel and bauxite subsidiaries.</p>
+
+<div class="activity">
+  <div class="head"><span class="num">Task 1.1</span><span class="time">4 min</span><span class="file">☁️ Copilot Chat · Web mode</span></div>
+  <h4>Research the new Permen ESDM</h4>
+  <p>Open <a href="https://copilot.microsoft.com" target="_blank">copilot.microsoft.com</a>. Make sure you're in <b>Web</b> mode (not Work). Paste this prompt:</p>
+  <div class="prompt">Research the latest amendments to Permen ESDM No. 11/2018 regarding mineral processing (hilirisasi) obligations for IUP-OP nickel holders in Indonesia. Include: deadline changes for smelter completion, royalty rate adjustments for nickel ore exports, divestment reporting requirements for PMA holders, and reclamation guarantee thresholds. Cite official sources (Kementerian ESDM, JDIH, Hukumonline) and link to any official press release.<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="callout"><b>What to notice:</b> Copilot Chat surfaces named regulations (UU 3/2020, PP 96/2021), and cites Hukumonline and JDIH — exactly the sources Indonesian legal teams already trust.</div>
+</div>
+
+<div class="activity">
+  <div class="head"><span class="num">Task 1.2</span><span class="time">3 min</span><span class="file">☁️ Copilot Chat · Web mode</span></div>
+  <h4>Synthesise impact for an Indonesian mining holding</h4>
+  <p>Continue the same conversation. Ask for synthesis:</p>
+  <div class="prompt">Based on the research above, summarise in 5 bullets the operational, financial, and legal impact for a state-owned Indonesian mining holding company whose nickel and bauxite operating subsidiaries have NOT yet commissioned their downstream smelters. Mention reclamation guarantee top-up and potential Material Adverse Change triggers on a USD 450 million syndicated loan.<button class="copy" onclick="cp(this)">Copy</button></div>
+</div>
+
+<div class="activity">
+  <div class="head"><span class="num">Task 1.3</span><span class="time">3 min</span><span class="file">☁️ Copilot Chat · Web mode</span></div>
+  <h4>Director-level talking points</h4>
+  <div class="prompt">Convert the impact bullets above into 60-second talking points for an oral briefing to the Director of Operations. Include 3 questions the Director is likely to ask, and a 1-line answer for each.<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="callout warn"><b>Caveat:</b> Free Copilot Chat reads the open web. It cannot see your internal Legal KB or contracts. That's what Exercise 2 unlocks.</div>
+</div>
+</div>
+</section>
+
+<!-- EXERCISE 2 -->
+<section id="ex2">
+<div class="modulehead"><div class="num">2</div><h2>Exercise 2 · Legal Memo (Paid)<small>15 min · Copilot in Word + Chat (Work)</small></h2></div>
+<div class="callout good"><b>Tier:</b> <span class="badge amber">PAID — M365 Copilot</span> · The moment Free Chat becomes a Legal Counsel: grounded on YOUR Legal Knowledge Base.</div>
+<div class="card">
+<div class="filetag">📎 Files: <b>01 Mining_Regulation_Brief.docx</b> · <b>02 Legal_Knowledge_Base.docx</b> · <b>02 Legal_Memo_Template.docx</b> — already in your OneDrive</div>
+
+<div class="activity">
+  <div class="head"><span class="num">Task 2.1</span><span class="time">5 min</span><span class="file">☁️ Copilot Chat · Work mode</span></div>
+  <h4>Ground Copilot on the Legal Knowledge Base</h4>
+  <p>Open M365 Copilot Chat in <b>Work</b> mode. Use <code>/</code> to reference both files:</p>
+  <div class="prompt">/01_Contoso_Minerals_Mining_Regulation_Brief.docx /02_Contoso_Minerals_Legal_Knowledge_Base.docx — Based on these two documents, identify the 3 most critical legal issues facing Contoso Minerals' nickel and bauxite subsidiaries under Permen ESDM No. 7 of 2026. For each issue, cite: (a) the specific articles affected, (b) our internal SOP or policy reference, and (c) any relevant Supreme Court precedent from the Legal Knowledge Base.<button class="copy" onclick="cp(this)">Copy</button></div>
+</div>
+
+<div class="activity">
+  <div class="head"><span class="num">Task 2.2</span><span class="time">7 min</span><span class="file">📝 Word Copilot · in-app</span></div>
+  <h4>Draft the Legal Memo in Word</h4>
+  <p>Open <b>02 Legal_Memo_Template.docx</b> in Word on the Web. Open the Copilot pane:</p>
+  <div class="prompt">Using the Legal Memo template structure in this document, and the analysis we just generated in Copilot Chat, draft a complete Legal Memo addressed to the Direktur Utama PT Contoso Minerals (Persero). Fill in all 6 sections:
+I.   Latar Belakang
+II.  Pertanyaan Hukum
+III. Analisis Hukum (IRAC)
+IV.  Kesimpulan
+V.   Rekomendasi & Mitigasi Risiko
+VI.  Limitasi & Disclaimer
+
+Use professional Indonesian legal language. Reference Permen ESDM 7/2026, UU 3/2020 (Minerba), PP 96/2021, PP 25/2024, and Putusan MA No. 2447 K/Pdt/2021 where relevant. Maximum 1.5 pages.<button class="copy" onclick="cp(this)">Copy</button></div>
+</div>
+
+<div class="activity">
+  <div class="head"><span class="num">Task 2.3</span><span class="time">3 min</span><span class="file">📝 Word Copilot · in-app</span></div>
+  <h4>Add a risk register</h4>
+  <div class="prompt">Add a risk register table at Section V with columns: Risk ID | Risk Description | Severity (High/Medium/Low) | Owner | Mitigation Action | Deadline. Include at least 6 risks specifically tied to the nickel smelter deadline, bauxite tolling option, reclamation top-up, MAC trigger, divestment reporting, and royalty escalation.<button class="copy" onclick="cp(this)">Copy</button></div>
+</div>
+</div>
+</section>
+
+<!-- EXERCISE 3 -->
+<section id="ex3">
+<div class="modulehead"><div class="num">3</div><h2>Exercise 3 · NDA Red-Flag Review (Paid)<small>15 min · Word + Chat (Work)</small></h2></div>
+<div class="callout good"><b>Tier:</b> <span class="badge amber">PAID — M365 Copilot</span> · Cross-document comparison: counterparty NDA vs your M&amp;A Playbook.</div>
+<div class="card">
+<div class="filetag">📎 Files: <b>03 NDA_Draft.docx</b> · <b>03 MA_Playbook.docx</b></div>
+
+<div class="activity">
+  <div class="head"><span class="num">Task 3.1</span><span class="time">5 min</span><span class="file">☁️ Copilot Chat · Work mode</span></div>
+  <h4>Red-flag scan across two documents</h4>
+  <div class="prompt">/03_Contoso_Minerals_NDA_Draft.docx /03_Contoso_Minerals_MA_Playbook.docx — Compare the counterparty NDA against our M&A Playbook v4.0. List every clause that violates our standards. For each violation output a table row: Clause # | Issue | Why it violates the Playbook | Recommended mark-up (1–2 sentences).<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="callout danger"><b>Expected red flags:</b> Singapore governing law, SIAC arbitration, 7-year term, uncapped indemnity for consequential damages, exclusivity inside the NDA, unilateral assignment, no injunctive-relief bond.</div>
+</div>
+
+<div class="activity">
+  <div class="head"><span class="num">Task 3.2</span><span class="time">7 min</span><span class="file">📝 Word Copilot · in-app</span></div>
+  <h4>Generate the mark-up in Word</h4>
+  <p>Open <b>03 NDA_Draft.docx</b> in Word. Open the Copilot pane:</p>
+  <div class="prompt">Rewrite Clauses 3 (Term), 5 (Indemnity), 6 (Governing Law &amp; Dispute), 7 (Exclusivity), and 9 (Assignment) of this NDA to fully comply with the Contoso Minerals M&amp;A Playbook v4.0. Output the new clauses in mark-up style — additions in bold, deletions struck through. Keep the rest of the document intact. Match the document's existing legal English style.<button class="copy" onclick="cp(this)">Copy</button></div>
+</div>
+
+<div class="activity">
+  <div class="head"><span class="num">Task 3.3</span><span class="time">3 min</span><span class="file">☁️ Copilot Chat · Work mode</span></div>
+  <h4>Draft the negotiation cover email</h4>
+  <div class="prompt">Draft a polite but firm cover email to Pacific Resources Holdings Pte. Ltd. summarising our 5 key amendments to their NDA. For each amendment, give a one-line rationale referencing Indonesian law where relevant (KUHPerdata Pasal 1247–1248 on indemnity; POJK 17/2020 on material transactions; UU PT 40/2007). Propose a 30-minute call within 5 business days. Sign-off as Ratna Sari, VP Corporate Legal, PT Contoso Minerals (Persero). Provide both English and Bahasa Indonesia versions.<button class="copy" onclick="cp(this)">Copy</button></div>
+</div>
+</div>
+</section>
+
+<!-- EXERCISE 4 -->
+<section id="ex4">
+<div class="modulehead"><div class="num">4</div><h2>Exercise 4 · Litigation Analytics (Paid)<small>15 min · Excel Edit + Plan + Analyst</small></h2></div>
+<div class="callout good"><b>Tier:</b> <span class="badge amber">PAID — M365 Copilot</span> · The newest Excel Copilot <b>Edit</b> and <b>Plan</b> modes — no formulas required.</div>
+<div class="card">
+<div class="filetag">📎 File: <b>04 Litigation_Cases.xlsx</b> · 50 realistic Indonesian cases across 6 subsidiaries</div>
+
+<div class="activity">
+  <div class="head"><span class="num">Task 4.1</span><span class="time">5 min</span><span class="file">📊 Excel Copilot · Edit</span></div>
+  <h4>Profile the dataset (Edit)</h4>
+  <p>Open <b>04 Litigation_Cases.xlsx</b> in Excel for the Web. Open Copilot and switch to <b>Edit</b>:</p>
+  <div class="prompt">Profile the Litigation_Cases sheet. Add a new sheet called "Summary" with: total cases, ongoing vs closed, breakdown by Anak_Holding, breakdown by Case_Type, total claim exposure (IDR Bn), total settlement paid (IDR Bn), and overall win rate. Use clear headers and apply conditional formatting (green ≥ 60%, amber 40–60%, red < 40%) on the win rate column.<button class="copy" onclick="cp(this)">Copy</button></div>
+</div>
+
+<div class="activity">
+  <div class="head"><span class="num">Task 4.2</span><span class="time">5 min</span><span class="file">📊 Excel Copilot · Plan</span></div>
+  <h4>Generate &amp; execute an analytics plan (Plan)</h4>
+  <p>Switch Copilot in Excel to <b>Plan</b> mode. Plan mode proposes a multi-step workflow and asks for your OK before each step.</p>
+  <div class="prompt">Plan and execute the following analytics workflow, and check in with me before executing each step:
+1) Compute average duration (days) by Case_Type and by Forum_Level.
+2) Identify the top 5 ongoing high-value cases by Claim_Amount_IDR_Bn.
+3) Compute win/loss rate per Anak_Holding (Menang / total closed).
+4) Flag every case with Duration_Days > 730 as "Aging" in a new column.
+5) Insert a bar chart of total exposure (sum of Claim_Amount_IDR_Bn) by Province.<button class="copy" onclick="cp(this)">Copy</button></div>
+</div>
+
+<div class="activity">
+  <div class="head"><span class="num">Task 4.3</span><span class="time">5 min</span><span class="file">📈 Analyst Agent</span></div>
+  <h4>Deep-dive root causes with Analyst</h4>
+  <p>In M365 Copilot, open the <b>Analyst</b> agent. Attach the same file.</p>
+  <div class="prompt">Using the litigation dataset, identify the top 3 root causes that drive the highest financial exposure across all 6 Anak Holding entities. For each root cause, compute: total claim amount, average duration, and win/loss ratio. Then recommend 2 preventive legal actions per root cause, grounded in Indonesian regulation (cite UU/PP/Permen).<button class="copy" onclick="cp(this)">Copy</button></div>
+</div>
+</div>
+</section>
+
+<!-- EXERCISE 5 -->
+<section id="ex5">
+<div class="modulehead"><div class="num">5</div><h2>Exercise 5 · COWORK FINALE<small>25 min · Cowork + Researcher + Analyst + Word</small></h2></div>
+<div class="callout good"><b>Tier:</b> <span class="badge amber">PAID — M365 Copilot</span> · The flagship moment — multi-step delegation that ends in a real HTML Executive Dashboard.</div>
+<div class="card">
+<div class="filetag">📎 Files: <b>05 Legal_Sync_Transcript.docx</b> + all earlier files (01–04) + live Researcher output</div>
+
+<div class="activity">
+  <div class="head"><span class="num">Task 5.1</span><span class="time">7 min</span><span class="file">🎥 Teams Recap → 📝 Word</span></div>
+  <h4>Turn meeting recordings into formal minutes</h4>
+  <p>Open <b>05 Legal_Sync_Transcript.docx</b> in Word (stand-in for a Teams meeting recap). In the Word Copilot pane, ask:</p>
+  <div class="prompt">Turn meeting recordings into formal minutes: Teams Recap auto-transcribes, then Word transforms it into a professional meeting minutes template. Create "Notulen Rapat Mingguan Divisi Corporate Legal" with: Kop Rapat, Peserta, Agenda, Ringkasan Diskusi per Topik, Keputusan, and an Action Items table (PIC | Tindakan | Tenggat | Status).<button class="copy" onclick="cp(this)">Copy</button></div>
+</div>
+
+<div class="activity">
+  <div class="head"><span class="num">Task 5.2</span><span class="time">15 min</span><span class="file">🚀 Cowork</span></div>
+  <h4>Build the Executive Legal Dashboard (HTML) — ONE prompt</h4>
+  <p>In M365 Copilot, open <b>Cowork</b>. Issue ONE multi-step instruction. Cowork plans the steps, checks in at checkpoints, and executes.</p>
+  <div class="prompt">Build me an "Executive Legal Dashboard" for the Direktur Utama PT Contoso Minerals (Persero). Plan the steps, confirm with me before each step, then execute:
+
+1) Use Researcher to pull the latest status of Permen ESDM No. 7 of 2026 and any related circulars or director-general decisions.
+2) Use the Analyst agent on /04_Contoso_Minerals_Litigation_Cases.xlsx to compute: total exposure (IDR Bn), overall win rate, the top 5 ongoing high-value cases, breakdown by Case_Type, and 12-month trend of new cases.
+3) From the minutes generated in Task 5.1 (or directly from /05_Contoso_Minerals_Legal_Sync_Transcript.docx) extract the 7 open action items with owner and deadline.
+4) Produce a single self-contained HTML page titled "Contoso Minerals — Executive Legal Dashboard — May 2026". Include: 4 KPI tiles at the top (Total Exposure, Win Rate, Ongoing Cases, Open Actions), a Top-5 ongoing cases table, a bar chart for exposure by Case_Type, a Regulatory Watchlist panel with the Permen ESDM 7/2026 status, and the Open Action Items list. Use a clean dark navy + white corporate theme with Inter/Segoe UI font. Inline all CSS and SVG charts — no external dependencies.
+5) Save the HTML as ContosoMinerals_Legal_Dashboard.html in my OneDrive.<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="callout"><b>What to watch for:</b> Cowork will pause at each step and show you the plan, the data it found, and a draft. Approve or redirect at every checkpoint — that's the point.</div>
+</div>
+
+<div class="activity">
+  <div class="head"><span class="num">Task 5.3</span><span class="time">3 min</span><span class="file">🚀 Cowork + 📝 Word</span></div>
+  <h4>Wrap with an email to the Direktur Utama</h4>
+  <div class="prompt">Now draft a Bahasa Indonesia email to Direktur Utama PT Contoso Minerals attaching ContosoMinerals_Legal_Dashboard.html. Summarise in 1 paragraph the 3 most important findings, the single biggest legal risk, and ask for a 15-minute slot this Friday for a walkthrough. CC: VP Corporate Legal (Ratna Sari). Tone: formal but direct.<button class="copy" onclick="cp(this)">Copy</button></div>
+</div>
+</div>
+</section>
+
+<!-- FILES -->
+<section id="files">
+<div class="modulehead"><div class="num">📎</div><h2>Sample Files<small>Download all · Upload to OneDrive · Then start Exercise 1</small></h2></div>
+<div class="card">
+<table>
+<thead><tr><th>File</th><th>Used in</th><th>What's inside</th></tr></thead>
+<tbody>
+<tr><td><a href="samples/01_Contoso_Minerals_Mining_Regulation_Brief.docx" download>01 Mining Regulation Brief</a></td><td>Ex 1, Ex 2</td><td>Hukumonline-style alert on Permen ESDM 7/2026 (smelter deadline, royalty hike, reclamation top-up).</td></tr>
+<tr><td><a href="samples/02_Contoso_Minerals_Legal_Knowledge_Base.docx" download>02 Legal Knowledge Base</a></td><td>Ex 2</td><td>Internal policies (LGL-POL-001, SOP-005), mandatory clauses, MA precedents, regulation watchlist, risk library.</td></tr>
+<tr><td><a href="samples/02_Contoso_Minerals_Legal_Memo_Template.docx" download>02 Legal Memo Template</a></td><td>Ex 2</td><td>Standardised IRAC-structured Legal Memo template (LGL-TMPL-001).</td></tr>
+<tr><td><a href="samples/03_Contoso_Minerals_NDA_Draft.docx" download>03 NDA Draft (counterparty)</a></td><td>Ex 3</td><td>Counterparty NDA with 5+ planted red flags — Singapore law, uncapped indemnity, 7-year term, exclusivity, unilateral assignment.</td></tr>
+<tr><td><a href="samples/03_Contoso_Minerals_MA_Playbook.docx" download>03 M&amp;A Playbook</a></td><td>Ex 3</td><td>Internal M&amp;A Playbook v4.0 — mandatory clauses, auto-reject red flags, signing authority matrix.</td></tr>
+<tr><td><a href="samples/04_Contoso_Minerals_Litigation_Cases.xlsx" download>04 Litigation Cases</a></td><td>Ex 4, Ex 5</td><td>50 realistic Indonesian cases across 6 subsidiaries; PN/PT/PTUN/PHI/BANI/Pengadilan Pajak forums.</td></tr>
+<tr><td><a href="samples/05_Contoso_Minerals_Legal_Sync_Transcript.docx" download>05 Legal Sync Transcript</a></td><td>Ex 5</td><td>Realistic 38-min Teams Recap of the weekly Legal Sync with auto-extracted action items.</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- TIPS -->
+<section id="tips">
+<div class="modulehead"><div class="num">💡</div><h2>Tips &amp; Reminders</h2></div>
+<div class="card">
+<ul>
+  <li><b>Be specific</b> — name the format, length, audience, and tone.</li>
+  <li><b>Always cite Indonesian sources</b> when asking Copilot to research regulation: "Cite Kementerian ESDM, JDIH, Hukumonline".</li>
+  <li><b>Use <code>/</code> to reference files</b> in Copilot Chat (Work) — it's the difference between generic answers and grounded answers.</li>
+  <li><b>For Excel, prefer Plan mode</b> for multi-step analytics — it shows you the plan before touching your data.</li>
+  <li><b>Cowork checkpoints are your safety net</b> — review every plan before approving.</li>
+  <li><b>Never paste real PII or commercially sensitive data</b> in a workshop. UU PDP applies.</li>
+</ul>
+<div class="callout warn"><b>Licensing reminder:</b> Exercise 1 works for everyone with a Microsoft account (Free). Exercises 2–5 require a paid M365 Copilot licence. For your Basic-licence colleagues, encourage daily use of Free Copilot Chat for research, summarisation, and drafting.</div>
+</div>
+</section>
+
+</main>
+</div>
+
+<script>
+const PW = "ContosoMinerals2026";
+function unlock(){
+  var p = document.getElementById("pw").value;
+  if(p === PW){
+    sessionStorage.setItem("cm_ok","1");
+    document.getElementById("lock").style.display="none";
+    document.getElementById("main").style.display="grid";
+  } else {
+    document.getElementById("err").textContent = "Incorrect password.";
+  }
+}
+document.getElementById("pw").addEventListener("keypress",function(e){if(e.key==="Enter")unlock();});
+if(sessionStorage.getItem("cm_ok")==="1"){
+  document.getElementById("lock").style.display="none";
+  document.getElementById("main").style.display="grid";
+}
+function cp(btn){
+  var t = btn.parentNode.innerText.replace(/Copy$/,"").trim();
+  navigator.clipboard.writeText(t).then(function(){
+    btn.classList.add("copied"); btn.textContent="Copied";
+    setTimeout(function(){btn.classList.remove("copied");btn.textContent="Copy";},1500);
+  });
+}
+</script>
+</body>
+</html>
