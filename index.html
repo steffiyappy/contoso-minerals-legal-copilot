@@ -180,17 +180,15 @@ td a{color:var(--ink);font-weight:600}td a:hover{color:var(--accent2)}
 <div class="modulehead"><div class="num">🛠</div><h2>Tools Used Today<small>M365 Copilot surfaces</small></h2></div>
 <div class="card">
 <div class="tools-grid">
-  <div class="tool-card"><div class="icon">☁️</div><h5>Copilot Chat (Free / Web)</h5><p>Web-grounded chat for any signed-in Microsoft account. No SKU needed. Used in Exercise 1 to research the new Permen ESDM.</p></div>
-  <div class="tool-card"><div class="icon">☁️</div><h5>Copilot Chat (Work)</h5><p>Paid M365 Copilot Chat with access to OneDrive/SharePoint files via the <code>/</code> reference. Used to ground on Legal KB and Playbook.</p></div>
-  <div class="tool-card"><div class="icon">📝</div><h5>Word Copilot</h5><p>In-app drafting and mark-up. Used for Legal Memo and NDA negotiation mark-up.</p></div>
-  <div class="tool-card"><div class="icon">📊</div><h5>Excel Copilot — Edit + Plan</h5><p>The 2025/2026 Edit and Plan modes let Copilot propose and execute multi-step analytics in your workbook.</p></div>
-  <div class="tool-card"><div class="icon">📈</div><h5>Analyst Agent</h5><p>Out-of-the-box AI analyst — drop in a dataset and ask complex questions. No setup required.</p></div>
-  <div class="tool-card"><div class="icon">🔍</div><h5>Researcher</h5><p>Deep-research mode with Critique (dual-model) for verified, source-grounded reports.</p></div>
-  <div class="tool-card"><div class="icon">🎥</div><h5>Teams Recap</h5><p>Auto-transcribes meetings and extracts action items — feeds Word for formal Notulen Rapat.</p></div>
-  <div class="tool-card"><div class="icon">📧</div><h5>Outlook Copilot</h5><p>Drafts emails inline, refines tone in one click, and summarises long threads — without leaving the inbox.</p></div>
-  <div class="tool-card"><div class="icon">🚀</div><h5>Cowork</h5><p>Multi-step delegation. Describe the outcome — Cowork plans the steps, checks in, and executes.</p></div>
-  <div class="tool-card"><div class="icon">📊</div><h5>PowerPoint Copilot</h5><p>Builds a board-ready deck from a Word memo and dashboard findings — visuals + speaker notes.</p></div>
-  <div class="tool-card"><div class="icon">🤖</div><h5>Agent Builder (in M365 Copilot)</h5><p>No-code agent creation right inside M365 Copilot — describe in natural language, ground on SharePoint/OneDrive files. Included with paid M365 Copilot. <b>Not Copilot Studio.</b></p></div>
+  <div class="tool-card"><div class="icon">☁️</div><h5>Copilot Chat</h5><p>The single entry point. Web research, Work-mode chat over your OneDrive/SharePoint via <code>/</code>, and the launchpad for every other tool below.</p></div>
+    <div class="tool-card"><div class="icon">🔍</div><h5>Researcher</h5><p>Deep-research mode with Critique (dual-model) for verified, source-grounded reports — Indonesian regulation and Putusan MA.</p></div>
+    <div class="tool-card"><div class="icon">📝</div><h5>Word Copilot</h5><p>In-app drafting and mark-up. Used for the IRAC Legal Memo and inline mark-up of the counterparty NDA.</p></div>
+    <div class="tool-card"><div class="icon">📊</div><h5>Excel Copilot — Edit + Plan</h5><p>The 2025/2026 Edit and Plan modes let Copilot propose and execute multi-step analytics in your workbook. No formulas needed.</p></div>
+    <div class="tool-card"><div class="icon">📈</div><h5>Analyst Agent</h5><p>Out-of-the-box AI analyst running Python in a sandbox — root-cause the top exposure drivers across all 6 Anak Holding.</p></div>
+    <div class="tool-card"><div class="icon">🎥</div><h5>Teams Recap</h5><p>Auto-transcribes meetings and extracts action items — feeds Word for a formal Notulen Rapat.</p></div>
+    <div class="tool-card"><div class="icon">🎯</div><h5>PowerPoint Copilot</h5><p>Builds a board-ready deck from a Word memo and dashboard findings — visuals + speaker notes.</p></div>
+    <div class="tool-card"><div class="icon">🚀</div><h5>Cowork</h5><p>Multi-step delegation. One prompt → an HTML Executive Legal Dashboard. Cowork plans, checks in, and executes.</p></div>
+    <div class="tool-card"><div class="icon">🤖</div><h5>Agent Builder (in M365 Copilot)</h5><p>No-code agent creation right inside M365 Copilot — describe in natural language, ground on SharePoint/OneDrive files. <b>Not Copilot Studio.</b></p></div>
 </div>
 <div class="callout warn" style="margin-top:16px"><b>Data privacy reminder:</b> Do not paste real Contoso commercially sensitive data into Copilot during this session. Use only the sample files provided. M365 Copilot is compliant with UU No. 27/2022 (PDP) — prompts and data stay within the tenant and are not used to train AI models.</div>
 </div>
@@ -199,18 +197,22 @@ td a{color:var(--ink);font-weight:600}td a:hover{color:var(--accent2)}
 <section id="story">
 <div class="modulehead" style="margin-top:8px">
   <div class="num" style="background:linear-gradient(135deg,var(--brand),var(--accent));font-size:14px">▶</div>
-  <h2>The Story<small>One afternoon. Five moments. From regulation to executive dashboard.</small></h2>
+  <h2>The Story<small>One afternoon. 9 tools. One M365.</small></h2>
 </div>
 <div class="card">
-<p class="lead"><b>Ratna Sari, VP Corporate Legal of Contoso Minerals (Persero)</b>, opens her laptop after lunch. A new Permen ESDM has just tightened hilirisasi rules and raised coal royalty. She has one afternoon to brief the Direktur Utama:</p>
+<p class="lead"><b>Ratna Sari, VP Corporate Legal of Contoso Minerals (Persero)</b>, opens her laptop after lunch. A new Permen ESDM has just tightened hilirisasi rules and raised coal royalty. In one afternoon, Ratna runs <b>9 tools of M365 Copilot</b> — and briefs the Direktur Utama.</p>
 <ol>
-  <li><b>Research</b> the new regulation — using Free Copilot Chat.</li>
-  <li><b>Draft a Legal Memo</b> in Word, grounded on the internal Legal Knowledge Base.</li>
-  <li><b>Red-flag a counterparty NDA</b> against the M&amp;A Playbook and send a mark-up.</li>
-  <li><b>Analyse litigation</b> exposure across all 6 Anak Holding using Excel Plan + Analyst.</li>
-  <li><b>Delegate to Cowork</b> to produce an Executive Legal Dashboard (HTML) for the Direktur Utama.</li>
+  <li><b>Copilot Chat</b> — free web research on the new Permen ESDM, then grounded chat over the internal Legal KB.</li>
+  <li><b>Researcher</b> — verified, source-grounded sweep of Indonesian regulation and Putusan MA precedents.</li>
+  <li><b>Word Copilot</b> — draft the IRAC Legal Memo and produce inline mark-up of the counterparty NDA.</li>
+  <li><b>Excel Copilot (Edit + Plan)</b> — profile 50 cases and plan multi-step analytics. No formulas needed.</li>
+  <li><b>Analyst Agent</b> — root-cause the top 3 exposure drivers across all 6 Anak Holding.</li>
+  <li><b>Teams Recap</b> — turn the weekly Legal Sync into a formal Notulen Rapat with action items.</li>
+  <li><b>PowerPoint Copilot</b> — board-ready 5-slide deck for the Direktur Utama, sourced from the memo + dashboard.</li>
+  <li><b>Cowork</b> — one prompt → an HTML Executive Legal Dashboard. Cowork plans, checks in, executes.</li>
+  <li><b>Agent Builder</b> — publish "Contoso Legal Counsel" on the Legal KB. Zero Copilot Studio.</li>
 </ol>
-<div class="callout good"><b>The value:</b> One VP Legal. One afternoon. Research → draft → review → analyse → deliver an executive dashboard. All inside Microsoft 365. No custom agent required.</div>
+<div class="callout good"><b>The punchline:</b> One afternoon. 9 tools. One M365. All inside Microsoft 365 Copilot. No Copilot Studio required.</div>
 </div>
 </section>
 
