@@ -116,6 +116,7 @@ td a{color:var(--ink);font-weight:600}td a:hover{color:var(--accent2)}
     <a href="#ex3">Exercise 3 · NDA Red-Flag</a>
     <a href="#ex4">Exercise 4 · Litigation Analytics</a>
     <a href="#ex5">Exercise 5 · Cowork Dashboard</a>
+    <a href="#ex6">Exercise 6 · Agent Builder (Bonus)</a>
     <h3>Resources</h3>
     <a href="#files">Sample files</a>
     <a href="#tips">Tips &amp; reminders</a>
@@ -128,7 +129,7 @@ td a{color:var(--ink);font-weight:600}td a:hover{color:var(--accent2)}
 <div class="hero">
   <span class="pill">LEGAL FOCUS · INDONESIAN LAW</span>
   <h2>Contoso Minerals · M365 Copilot Legal Immersion</h2>
-  <p>A practical, 90-minute hands-on immersion designed specifically for the Corporate Legal Division of an Indonesian mining holding. We move from <b>Free Copilot Chat</b> → <b>Paid M365 Copilot</b> → <b>Cowork finale</b>. No custom agents required — every capability runs on out-of-the-box M365 Copilot.</p>
+  <p>A practical, 100-minute hands-on immersion designed specifically for the Corporate Legal Division of an Indonesian mining holding. We move from <b>Free Copilot Chat</b> → <b>Paid M365 Copilot</b> → <b>Cowork finale</b> → <b>Bonus: Agent Builder</b>. No Copilot Studio required — every capability runs on out-of-the-box M365 Copilot.</p>
   <div class="meta-row">
     <span><b>Format</b> Hands-on workshop</span>
     <span><b>Duration</b> 90 min</span>
@@ -168,7 +169,8 @@ td a{color:var(--ink);font-weight:600}td a:hover{color:var(--accent2)}
   <div>15 min</div><div><b>Exercise 3</b> · NDA Red-Flag Review vs M&amp;A Playbook (Paid)</div><div>00:40–00:55</div>
   <div>15 min</div><div><b>Exercise 4</b> · Litigation Analytics — Excel Edit + Plan (Paid)</div><div>00:55–01:10</div>
   <div>25 min</div><div><b>Exercise 5</b> · COWORK FINALE — Executive Legal Dashboard (HTML)</div><div>01:10–01:35</div>
-  <div>10 min</div><div><b>Q&amp;A and Wrap-up</b></div><div>01:35–01:45</div>
+  <div>15 min</div><div><b>Exercise 6 (Bonus)</b> · Build "Contoso Legal Counsel" agent — M365 Copilot Agent Builder</div><div>01:35–01:50</div>
+  <div>10 min</div><div><b>Q&amp;A and Wrap-up</b></div><div>01:50–02:00</div>
 </div>
 <div class="callout" style="margin-top:14px"><b>Pace tip:</b> The first 4 exercises are short and pacy. Cowork in Exercise 5 is the highlight — give it air.</div>
 </div>
@@ -186,6 +188,7 @@ td a{color:var(--ink);font-weight:600}td a:hover{color:var(--accent2)}
   <div class="tool-card"><div class="icon">🔍</div><h5>Researcher</h5><p>Deep-research mode with Critique (dual-model) for verified, source-grounded reports.</p></div>
   <div class="tool-card"><div class="icon">🎥</div><h5>Teams Recap</h5><p>Auto-transcribes meetings and extracts action items — feeds Word for formal Notulen Rapat.</p></div>
   <div class="tool-card"><div class="icon">🚀</div><h5>Cowork</h5><p>Multi-step delegation. Describe the outcome — Cowork plans the steps, checks in, and executes.</p></div>
+  <div class="tool-card"><div class="icon">🤖</div><h5>Agent Builder (in M365 Copilot)</h5><p>No-code agent creation right inside M365 Copilot — describe in natural language, ground on SharePoint/OneDrive files. Included with paid M365 Copilot. <b>Not Copilot Studio.</b></p></div>
 </div>
 <div class="callout warn" style="margin-top:16px"><b>Data privacy reminder:</b> Do not paste real Contoso commercially sensitive data into Copilot during this session. Use only the sample files provided. M365 Copilot is compliant with UU No. 27/2022 (PDP) — prompts and data stay within the tenant and are not used to train AI models.</div>
 </div>
@@ -392,6 +395,59 @@ Use professional Indonesian legal language. Reference Permen ESDM 7/2026, UU 3/2
 </div>
 </section>
 
+<!-- EXERCISE 6 -->
+<section id="ex6">
+<div class="modulehead"><div class="num">6</div><h2>Exercise 6 · Agent Builder (Bonus)<small>15 min · M365 Copilot Agent Builder · no Copilot Studio licence required</small></h2></div>
+<div class="callout good"><b>Tier:</b> <span class="badge amber">PAID — M365 Copilot</span> · Build a no-code legal agent grounded on YOUR Legal Knowledge Base. <b>This is NOT Copilot Studio</b> — it's the in-Copilot Agent Builder, included with your paid M365 Copilot licence.</div>
+<div class="card">
+<div class="filetag">📎 Files: <b>02 Legal_Knowledge_Base.docx</b> · <b>02 Legal_Memo_Template.docx</b> · <b>03 MA_Playbook.docx</b> · <b>04 Litigation_Cases.xlsx</b></div>
+
+<div class="activity">
+  <div class="head"><span class="num">Task 6.1</span><span class="time">5 min</span><span class="file">🤖 M365 Copilot · Agent Builder</span></div>
+  <h4>Create the agent — describe it in natural language</h4>
+  <p>Open M365 Copilot. Click <b>+ Create agent</b> (or open <b>Agent Builder</b> from the side panel). On the "Describe" tab, paste:</p>
+  <div class="prompt">Create a new agent called "Contoso Legal Counsel".
+
+Description: Internal legal assistant for the Corporate Legal Division of PT Contoso Minerals (Persero), grounded on Indonesian mining regulation and our internal Legal Knowledge Base.
+
+Instructions:
+- Always answer in Bahasa Indonesia unless the question is in English.
+- Cite the specific UU, PP, Permen ESDM, POJK, KUHPerdata article, or Putusan Mahkamah Agung when giving legal answers.
+- Use the IRAC structure (Issue–Rule–Application–Conclusion) for any legal opinion.
+- If the question requires updated regulation outside the attached knowledge base, say so and recommend escalation to the VP Corporate Legal.
+- Never give definitive advice on litigation strategy without flagging that internal counsel review is required.
+
+Tone: Professional, precise, formal Indonesian legal register.<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="callout"><b>What to notice:</b> Agent Builder scaffolds the agent automatically from your description — no flow diagram, no JSON, no licence beyond M365 Copilot.</div>
+</div>
+
+<div class="activity">
+  <div class="head"><span class="num">Task 6.2</span><span class="time">5 min</span><span class="file">🤖 Agent Builder · Knowledge</span></div>
+  <h4>Attach the Legal Knowledge Base</h4>
+  <p>In the agent builder pane, switch to the <b>Knowledge</b> tab. Add files from OneDrive:</p>
+  <ul>
+    <li><code>/02_Contoso_Minerals_Legal_Knowledge_Base.docx</code> — internal policies, mandatory clauses, MA precedents, watchlist, risk library</li>
+    <li><code>/02_Contoso_Minerals_Legal_Memo_Template.docx</code> — IRAC memo template</li>
+    <li><code>/03_Contoso_Minerals_MA_Playbook.docx</code> — playbook v4.0 with auto-reject red flags</li>
+    <li><code>/04_Contoso_Minerals_Litigation_Cases.xlsx</code> — 50 case dataset</li>
+  </ul>
+  <div class="callout warn"><b>Setting:</b> Turn <b>"Always cite sources"</b> ON. Every answer should reference the specific file and clause/section.</div>
+</div>
+
+<div class="activity">
+  <div class="head"><span class="num">Task 6.3</span><span class="time">5 min</span><span class="file">🤖 Agent Builder · Test pane</span></div>
+  <h4>Test with realistic Indonesian legal questions</h4>
+  <p>In the test pane on the right of Agent Builder, send these three prompts in sequence and check that every answer cites a specific file and clause:</p>
+  <div class="prompt">Apa kewajiban divestasi saham bagi pemegang IUPK PMA berdasarkan SOP internal kita dan PP 96/2021?<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="prompt">Klausul apa yang termasuk auto-reject pada review NDA berdasarkan M&A Playbook v4.0? Berikan minimal 5 contoh dengan alasannya.<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="prompt">Berapa total exposure litigasi grup untuk kasus jenis Sengketa Pertanahan? Sebutkan top 3 kasus tertinggi beserta Anak Holding-nya, status, dan claim amount.<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="callout good"><b>Publish &amp; share:</b> Once you're happy, click <b>Publish</b>. The agent now appears in M365 Copilot for your team. Share with the Corporate Legal Division — done in 15 minutes, zero code.</div>
+</div>
+
+<div class="callout danger"><b>Important — what this is not:</b> This exercise uses <b>Agent Builder inside M365 Copilot</b>, not <b>Copilot Studio</b>. They are different products. Agent Builder is included with your paid M365 Copilot licence; Copilot Studio is a separate licence and is intentionally out of scope today.</div>
+</div>
+</section>
+
 <!-- FILES -->
 <section id="files">
 <div class="modulehead"><div class="num">📎</div><h2>Sample Files<small>Download all · Upload to OneDrive · Then start Exercise 1</small></h2></div>
@@ -421,6 +477,7 @@ Use professional Indonesian legal language. Reference Permen ESDM 7/2026, UU 3/2
   <li><b>Use <code>/</code> to reference files</b> in Copilot Chat (Work) — it's the difference between generic answers and grounded answers.</li>
   <li><b>For Excel, prefer Plan mode</b> for multi-step analytics — it shows you the plan before touching your data.</li>
   <li><b>Cowork checkpoints are your safety net</b> — review every plan before approving.</li>
+  <li><b>Agent Builder ≠ Copilot Studio</b> — Agent Builder is the no-code option inside M365 Copilot, included with your paid licence; Copilot Studio is a separate product.</li>
   <li><b>Never paste real PII or commercially sensitive data</b> in a workshop. UU PDP applies.</li>
 </ul>
 <div class="callout warn"><b>Licensing reminder:</b> Exercise 1 works for everyone with a Microsoft account (Free). Exercises 2–5 require a paid M365 Copilot licence. For your Basic-licence colleagues, encourage daily use of Free Copilot Chat for research, summarisation, and drafting.</div>
