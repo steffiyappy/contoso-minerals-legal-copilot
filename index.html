@@ -43,6 +43,9 @@ ul{padding-left:20px;margin:8px 0}li{margin:4px 0}
 .activity h4{margin:0;font-size:16px;color:var(--ink);font-weight:600}
 .activity p{margin:6px 0;color:var(--muted);font-size:14px}
 .prompt{position:relative;background:var(--code);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:14px 44px 14px 16px;margin:10px 0;font-family:"JetBrains Mono","Consolas",monospace;font-size:13px;color:#c9d6ff;white-space:pre-wrap;line-height:1.6}
+.prompt.en{border-left-color:#94a3b8;background:rgba(255,255,255,.03);margin-top:-4px;font-style:italic;opacity:.92}
+.prompt .lang{display:inline-block;font-family:"Inter",sans-serif;font-style:normal;font-size:10px;letter-spacing:1px;background:var(--accent);color:#fff;padding:2px 7px;border-radius:4px;margin-right:8px;vertical-align:middle;font-weight:700}
+.prompt.en .lang{background:#64748b}
 .prompt .copy{position:absolute;top:8px;right:8px;background:#1a2552;color:#e2e8f0;border:1px solid rgba(255,255,255,.2);border-radius:6px;padding:4px 10px;font-size:11px;cursor:pointer;font-family:inherit;transition:all .2s}
 .prompt .copy:hover{background:var(--accent);color:#fff}.prompt .copy.copied{background:var(--good);color:#0a0f24}
 .callout{border-left:4px solid var(--accent2);background:var(--callout-info);padding:12px 16px;margin:12px 0;border-radius:8px;color:var(--ink);font-size:14px}
@@ -243,6 +246,7 @@ td a{color:var(--ink);font-weight:600}td a:hover{color:var(--accent2)}
   <h4>Research the new Permen ESDM</h4>
   <p>Open <a href="https://copilot.microsoft.com" target="_blank">copilot.microsoft.com</a>. Make sure you're in <b>Web</b> mode (not Work). Paste this prompt:</p>
   <div class="prompt">Riset perubahan terbaru atas Permen ESDM No. 11/2018 mengenai kewajiban pengolahan dan pemurnian (hilirisasi) bagi pemegang IUP-OP batubara di Indonesia. Cakup: perubahan tenggat penyelesaian fasilitas gasifikasi batubara, penyesuaian tarif royalti ekspor batubara, kewajiban pelaporan divestasi bagi pemegang PMA, serta ambang batas jaminan reklamasi. Sertakan sitasi sumber resmi (Kementerian ESDM, JDIH, Hukumonline) dan tautan ke siaran pers resmi jika ada.<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="prompt en"><span class="lang">EN</span>Research the latest updates to Permen ESDM No. 11/2018 on the processing and refining (hilirisasi) obligations of IUP-OP coal holders in Indonesia. Cover: changes to the coal-gasification facility completion deadline, adjustments to coal export royalty rates, divestment reporting obligations for PMA holders, and reclamation guarantee thresholds. Include citations to official sources (Kementerian ESDM, JDIH, Hukumonline) and links to official press releases if available.<button class="copy" onclick="cp(this)">Copy</button></div>
   <div class="callout"><b>What to notice:</b> Copilot Chat surfaces named regulations (UU 3/2020, PP 96/2021), and cites Hukumonline and JDIH — exactly the sources Indonesian legal teams already trust.</div>
 </div>
 
@@ -251,12 +255,14 @@ td a{color:var(--ink);font-weight:600}td a:hover{color:var(--accent2)}
   <h4>Synthesise impact for an Indonesian mining holding</h4>
   <p>Continue the same conversation. Ask for synthesis:</p>
   <div class="prompt">Berdasarkan riset di atas, ringkas dalam 5 poin dampak operasional, finansial, dan hukum bagi BUMN holding pertambangan Indonesia yang anak usaha batubaranya BELUM mengoperasikan fasilitas gasifikasi batubara hilir. Sebutkan kebutuhan top-up jaminan reklamasi dan potensi pemicu Material Adverse Change pada pinjaman sindikasi USD 450 juta.<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="prompt en"><span class="lang">EN</span>Based on the research above, summarise in 5 bullet points the operational, financial, and legal impact on an Indonesian state-owned mining holding whose coal subsidiaries have NOT yet operated a downstream coal-gasification facility. Call out the reclamation-guarantee top-up requirement and the potential Material Adverse Change trigger on the USD 450M syndicated loan.<button class="copy" onclick="cp(this)">Copy</button></div>
 </div>
 
 <div class="activity">
   <div class="head"><span class="num">Task 1.3</span><span class="time">3 min</span><span class="file">☁️ Copilot Chat · Web mode</span></div>
   <h4>Director-level talking points</h4>
   <div class="prompt">Ubah poin-poin dampak di atas menjadi talking points 60 detik untuk briefing lisan kepada Direktur Operasi. Sertakan 3 pertanyaan yang kemungkinan akan diajukan Direktur, dengan jawaban 1 kalimat untuk masing-masing.<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="prompt en"><span class="lang">EN</span>Convert the impact points above into 60-second talking points for an oral briefing to the Director of Operations. Include 3 questions the Director is likely to ask, each with a 1-sentence answer.<button class="copy" onclick="cp(this)">Copy</button></div>
   <div class="callout warn"><b>Caveat:</b> Free Copilot Chat reads the open web. It cannot see your internal Legal KB or contracts. That's what Exercise 2 unlocks.</div>
 </div>
 </div>
@@ -274,6 +280,7 @@ td a{color:var(--ink);font-weight:600}td a:hover{color:var(--accent2)}
   <h4>Ground Copilot on the Legal Knowledge Base</h4>
   <p>Open M365 Copilot Chat in <b>Work</b> mode. Use <code>/</code> to reference both files:</p>
   <div class="prompt">/01_Contoso_Minerals_Mining_Regulation_Brief.docx /02_Contoso_Minerals_Legal_Knowledge_Base.docx — Berdasarkan kedua dokumen ini, identifikasi 3 isu hukum paling kritis yang dihadapi anak usaha batubara Contoso Minerals di bawah Permen ESDM No. 7 Tahun 2026. Untuk setiap isu, sebutkan: (a) pasal spesifik yang terdampak, (b) referensi SOP atau kebijakan internal kita, dan (c) yurisprudensi Mahkamah Agung relevan dari Legal Knowledge Base.<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="prompt en"><span class="lang">EN</span>/01_Contoso_Minerals_Mining_Regulation_Brief.docx /02_Contoso_Minerals_Legal_Knowledge_Base.docx — Based on both documents, identify the 3 most critical legal issues facing Contoso Minerals' coal subsidiaries under Permen ESDM No. 7 of 2026. For each issue, state: (a) the specific articles affected, (b) the relevant internal SOP or policy reference, and (c) the relevant Mahkamah Agung (Supreme Court) precedent from the Legal Knowledge Base.<button class="copy" onclick="cp(this)">Copy</button></div>
 </div>
 
 <div class="activity">
@@ -289,12 +296,22 @@ V.   Rekomendasi & Mitigasi Risiko
 VI.  Limitasi & Disclaimer
 
 Gunakan bahasa hukum Indonesia yang formal. Referensikan Permen ESDM 7/2026, UU 3/2020 (Minerba), PP 96/2021, PP 25/2024, serta Putusan MA No. 2447 K/Pdt/2021 bila relevan. Maksimum 1,5 halaman.<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="prompt en"><span class="lang">EN</span>Using the Legal Memo template structure in this document, and the analysis output from Copilot Chat earlier, draft a complete Legal Memo addressed to the President Director (Direktur Utama) of PT Contoso Minerals (Persero). Fill all 6 sections:
+I.   Background
+II.  Legal Questions
+III. Legal Analysis (IRAC)
+IV.  Conclusion
+V.   Recommendations &amp; Risk Mitigation
+VI.  Limitations &amp; Disclaimer
+
+Use formal Indonesian legal register. Reference Permen ESDM 7/2026, UU 3/2020 (Minerba), PP 96/2021, PP 25/2024, and Putusan MA No. 2447 K/Pdt/2021 where relevant. Maximum 1.5 pages.<button class="copy" onclick="cp(this)">Copy</button></div>
 </div>
 
 <div class="activity">
   <div class="head"><span class="num">Task 2.3</span><span class="time">3 min</span><span class="file">📝 Word Copilot · in-app</span></div>
   <h4>Add a risk register</h4>
   <div class="prompt">Tambahkan tabel risk register pada Bagian V dengan kolom: Risk ID | Deskripsi Risiko | Severity (Tinggi/Sedang/Rendah) | Owner | Mitigasi | Tenggat. Sertakan minimal 6 risiko yang secara spesifik terkait dengan tenggat fasilitas gasifikasi batubara batubara, opsi tolling batubara, top-up reklamasi, pemicu MAC, pelaporan divestasi, serta kenaikan royalti.<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="prompt en"><span class="lang">EN</span>Add a risk-register table in Section V with columns: Risk ID | Risk Description | Severity (High/Medium/Low) | Owner | Mitigation | Deadline. Include at least 6 risks specifically tied to the coal-gasification facility deadline, the coal tolling option, the reclamation top-up, the MAC trigger, divestment reporting, and the royalty hike.<button class="copy" onclick="cp(this)">Copy</button></div>
 </div>
 </div>
 </section>
@@ -310,6 +327,7 @@ Gunakan bahasa hukum Indonesia yang formal. Referensikan Permen ESDM 7/2026, UU 
   <div class="head"><span class="num">Task 3.1</span><span class="time">5 min</span><span class="file">☁️ Copilot Chat · Work mode</span></div>
   <h4>Red-flag scan across two documents</h4>
   <div class="prompt">/03_Contoso_Minerals_NDA_Draft.docx /03_Contoso_Minerals_MA_Playbook.docx — Bandingkan NDA counterparty dengan M&A Playbook v4.0 kita. Daftarkan setiap klausul yang melanggar standar kita. Untuk setiap pelanggaran, hasilkan satu baris tabel: Klausul # | Isu | Alasan melanggar Playbook | Usulan mark-up (1–2 kalimat).<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="prompt en"><span class="lang">EN</span>/03_Contoso_Minerals_NDA_Draft.docx /03_Contoso_Minerals_MA_Playbook.docx — Compare the counterparty NDA against our M&amp;A Playbook v4.0. List every clause that violates our standards. For each violation, output one table row: Clause # | Issue | Why it breaches the Playbook | Proposed mark-up (1–2 sentences).<button class="copy" onclick="cp(this)">Copy</button></div>
   <div class="callout danger"><b>Expected red flags:</b> Singapore governing law, SIAC arbitration, 7-year term, uncapped indemnity for consequential damages, exclusivity inside the NDA, unilateral assignment, no injunctive-relief bond.</div>
 </div>
 
@@ -318,6 +336,7 @@ Gunakan bahasa hukum Indonesia yang formal. Referensikan Permen ESDM 7/2026, UU 
   <h4>Generate the mark-up in Word</h4>
   <p>Open <b>03 NDA_Draft.docx</b> in Word. Open the Copilot pane:</p>
   <div class="prompt">Tulis ulang Klausul 3 (Jangka Waktu), 5 (Ganti Rugi/Indemnity), 6 (Hukum yang Berlaku &amp; Penyelesaian Sengketa), 7 (Eksklusivitas), dan 9 (Pengalihan) dari NDA ini agar sepenuhnya patuh pada M&amp;A Playbook v4.0 Contoso Minerals. Tampilkan klausul baru dalam gaya mark-up — penambahan dicetak tebal, penghapusan dicoret. Bagian lain dokumen tetap utuh. Sesuaikan dengan gaya bahasa hukum yang sudah dipakai di dokumen.<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="prompt en"><span class="lang">EN</span>Rewrite Clauses 3 (Term), 5 (Indemnity), 6 (Governing Law &amp; Dispute Resolution), 7 (Exclusivity), and 9 (Assignment) of this NDA so they fully comply with Contoso Minerals' M&amp;A Playbook v4.0. Show the new clauses in mark-up style — additions in bold, deletions struck-through. Leave the rest of the document untouched. Match the legal-drafting style already used in the document.<button class="copy" onclick="cp(this)">Copy</button></div>
 </div>
 
 <div class="activity">
@@ -325,6 +344,7 @@ Gunakan bahasa hukum Indonesia yang formal. Referensikan Permen ESDM 7/2026, UU 
   <h4>Draft the negotiation cover email — directly in Outlook</h4>
   <p>Open Outlook on the Web. Click <b>+ New mail</b>, then open the <b>Copilot</b> button → <b>Draft with Copilot</b>. Paste the prompt below. Use the tone slider (more direct / more formal) before sending — no copy-paste from Chat.</p>
   <div class="prompt">Susun email pengantar yang sopan namun tegas kepada Pacific Resources Holdings Pte. Ltd. (perihal: Tanggapan atas Draft NDA — PT Contoso Minerals × Pacific Resources). Rangkum 5 amandemen utama kita terhadap NDA mereka. Untuk setiap amandemen, berikan justifikasi 1 baris dengan referensi hukum Indonesia bila relevan (KUHPerdata Pasal 1247–1248 tentang ganti rugi; POJK 17/2020 tentang transaksi material; UU PT 40/2007). Usulkan call 30 menit dalam 5 hari kerja. Tanda tangan: Ratna Sari, VP Corporate Legal, PT Contoso Minerals (Persero). Sediakan versi Bahasa Indonesia dan English dalam satu email (BI di atas, English di bawah).<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="prompt en"><span class="lang">EN</span>Draft a courteous but firm cover email to Pacific Resources Holdings Pte. Ltd. (subject: Response to Draft NDA — PT Contoso Minerals × Pacific Resources). Summarise our 5 main amendments to their NDA. For each amendment, give a 1-line justification with an Indonesian legal reference where relevant (KUHPerdata Articles 1247–1248 on damages; POJK 17/2020 on material transactions; UU PT 40/2007). Propose a 30-minute call within 5 working days. Signature: Ratna Sari, VP Corporate Legal, PT Contoso Minerals (Persero). Provide both Bahasa Indonesia and English versions in the same email (BI on top, English below).<button class="copy" onclick="cp(this)">Copy</button></div>
 </div>
 </div>
 </section>
@@ -341,6 +361,7 @@ Gunakan bahasa hukum Indonesia yang formal. Referensikan Permen ESDM 7/2026, UU 
   <h4>Profile the dataset (Edit)</h4>
   <p>Open <b>04 Litigation_Cases.xlsx</b> in Excel for the Web. Open Copilot and switch to <b>Edit</b>:</p>
   <div class="prompt">Profilkan sheet Litigation_Cases. Tambahkan sheet baru bernama "Summary" yang berisi: total kasus, ongoing vs closed, breakdown per Anak_Holding, breakdown per Case_Type, total exposure klaim (IDR Bn), total settlement dibayarkan (IDR Bn), dan win rate keseluruhan. Gunakan header yang rapi dan terapkan conditional formatting (hijau ≥ 60%, kuning 40–60%, merah < 40%) pada kolom win rate.<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="prompt en"><span class="lang">EN</span>Profile the Litigation_Cases sheet. Add a new sheet called "Summary" containing: total cases, ongoing vs closed, breakdown by Anak_Holding, breakdown by Case_Type, total claim exposure (IDR Bn), total settlement paid (IDR Bn), and overall win rate. Use a clean header and apply conditional formatting (green ≥ 60%, yellow 40–60%, red &lt; 40%) on the win-rate column.<button class="copy" onclick="cp(this)">Copy</button></div>
 </div>
 
 <div class="activity">
@@ -353,6 +374,12 @@ Gunakan bahasa hukum Indonesia yang formal. Referensikan Permen ESDM 7/2026, UU 
 3) Hitung win/loss rate per Anak_Holding (Menang / total closed).
 4) Tandai setiap kasus dengan Duration_Days > 730 sebagai "Aging" di kolom baru.
 5) Sisipkan bar chart total exposure (jumlah Claim_Amount_IDR_Bn) per Province.<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="prompt en"><span class="lang">EN</span>Plan and execute the following analytics workflow, and confirm with me before each step:
+1) Compute average duration (days) per Case_Type and per Forum_Level.
+2) Identify the 5 highest-value ongoing cases by Claim_Amount_IDR_Bn.
+3) Compute win/loss rate per Anak_Holding (Won / total closed).
+4) Flag any case with Duration_Days &gt; 730 as "Aging" in a new column.
+5) Insert a bar chart of total exposure (sum of Claim_Amount_IDR_Bn) per Province.<button class="copy" onclick="cp(this)">Copy</button></div>
 </div>
 
 <div class="activity">
@@ -360,6 +387,7 @@ Gunakan bahasa hukum Indonesia yang formal. Referensikan Permen ESDM 7/2026, UU 
   <h4>Deep-dive root causes with Analyst</h4>
   <p>In M365 Copilot, open the <b>Analyst</b> agent. Attach the same file.</p>
   <div class="prompt">Dengan menggunakan dataset litigasi, identifikasi 3 akar penyebab teratas yang memicu exposure finansial tertinggi di seluruh 6 Anak Holding. Untuk setiap akar penyebab, hitung: total claim amount, rata-rata durasi, dan rasio menang/kalah. Kemudian rekomendasikan 2 tindakan hukum preventif per akar penyebab, dengan landasan regulasi Indonesia (sitasi UU/PP/Permen).<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="prompt en"><span class="lang">EN</span>Using the litigation dataset, identify the top 3 root causes driving the highest financial exposure across all 6 Anak Holding. For each root cause, compute: total claim amount, average duration, and win/loss ratio. Then recommend 2 preventive legal actions per root cause, grounded in Indonesian regulation (cite UU/PP/Permen).<button class="copy" onclick="cp(this)">Copy</button></div>
 </div>
 </div>
 </section>
@@ -376,6 +404,7 @@ Gunakan bahasa hukum Indonesia yang formal. Referensikan Permen ESDM 7/2026, UU 
   <h4>Turn meeting recordings into formal minutes</h4>
   <p>Open <b>05 Legal_Sync_Transcript.docx</b> in Word (stand-in for a Teams meeting recap). In the Word Copilot pane, ask:</p>
   <div class="prompt">Ubah rekaman rapat menjadi notulen formal: Teams Recap melakukan auto-transcribe, lalu Word mengubahnya ke template notulen profesional. Buat "Notulen Rapat Mingguan Divisi Corporate Legal" dengan: Kop Rapat, Peserta, Agenda, Ringkasan Diskusi per Topik, Keputusan, dan tabel Action Items (PIC | Tindakan | Tenggat | Status).<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="prompt en"><span class="lang">EN</span>Turn the meeting recording into formal minutes: Teams Recap auto-transcribes, then Word transforms it into a professional minutes template. Produce "Weekly Meeting Minutes — Corporate Legal Division" with: Meeting Header, Attendees, Agenda, Discussion Summary per Topic, Decisions, and an Action Items table (PIC | Action | Deadline | Status).<button class="copy" onclick="cp(this)">Copy</button></div>
 </div>
 
 <div class="activity">
@@ -389,6 +418,13 @@ Gunakan bahasa hukum Indonesia yang formal. Referensikan Permen ESDM 7/2026, UU 
 3) Dari notulen yang dihasilkan di Task 5.1 (atau langsung dari /05_Contoso_Minerals_Legal_Sync_Transcript.docx) ekstrak 7 action items terbuka beserta owner dan deadline.
 4) Hasilkan satu halaman HTML self-contained berjudul "Contoso Minerals — Executive Legal Dashboard — Mei 2026". Sertakan: 4 KPI tile di atas (Total Exposure, Win Rate, Ongoing Cases, Open Actions), tabel Top-5 ongoing cases, bar chart exposure per Case_Type, panel Regulatory Watchlist dengan status Permen ESDM 7/2026, serta daftar Open Action Items. Gunakan tema korporat navy gelap + putih, font Inter/Segoe UI. Inline seluruh CSS dan SVG chart — tanpa dependensi eksternal.
 5) Simpan HTML sebagai ContosoMinerals_Legal_Dashboard.html di OneDrive saya.<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="prompt en"><span class="lang">EN</span>Build me an "Executive Legal Dashboard" for the President Director of PT Contoso Minerals (Persero). Plan out the steps, confirm with me before each step, then execute:
+
+1) Use Researcher to pull the latest status of Permen ESDM No. 7 of 2026 and any related circular letters or director-general decisions.
+2) Use the Analyst agent on /04_Contoso_Minerals_Litigation_Cases.xlsx to compute: total exposure (IDR Bn), overall win rate, top 5 ongoing high-value cases, breakdown by Case_Type, and the 12-month trend of new cases.
+3) From the minutes produced in Task 5.1 (or directly from /05_Contoso_Minerals_Legal_Sync_Transcript.docx) extract 7 open action items with owner and deadline.
+4) Produce one self-contained HTML page titled "Contoso Minerals — Executive Legal Dashboard — May 2026". Include: 4 KPI tiles at the top (Total Exposure, Win Rate, Ongoing Cases, Open Actions), a Top-5 ongoing cases table, a bar chart of exposure per Case_Type, a Regulatory Watchlist panel with Permen ESDM 7/2026 status, and an Open Action Items list. Use a corporate dark-navy + white theme, Inter/Segoe UI font. Inline all CSS and SVG charts — no external dependencies.
+5) Save the HTML as ContosoMinerals_Legal_Dashboard.html to my OneDrive.<button class="copy" onclick="cp(this)">Copy</button></div>
   <div class="callout"><b>What to watch for:</b> Cowork will pause at each step and show you the plan, the data it found, and a draft. Approve or redirect at every checkpoint — that's the point.</div>
 </div>
 
@@ -397,6 +433,7 @@ Gunakan bahasa hukum Indonesia yang formal. Referensikan Permen ESDM 7/2026, UU 
   <h4>Turn the dashboard into a board-ready deck for the Direktur Utama</h4>
   <p>Open a new PowerPoint. In the PowerPoint Copilot pane, point it at the legal memo (from Ex 2) and the dashboard findings (from Task 5.2). PowerPoint Copilot builds the deck, picks visuals, and writes speaker notes in one go.</p>
   <div class="prompt">Buat presentasi board-ready 5 slide berjudul "Update Hukum & Risiko — Mei 2026" untuk Direktur Utama PT Contoso Minerals (Persero), bersumber dari Legal Memo tentang Permen ESDM 7/2026 dan temuan Executive Legal Dashboard. Slide: (1) Cover dengan tanggal dan "Confidential — Board Use Only", (2) Permen ESDM 7/2026 — 3 perubahan utama dan status kepatuhan kita, (3) 5 litigasi ongoing high-value teratas dengan exposure dan forum, (4) Risiko terbesar dan usulan mitigasinya, (5) Asks dan keputusan yang dibutuhkan dari BOD. Tampilan korporat — navy + putih, Segoe UI. Tambahkan speaker notes ringkas berbahasa Indonesia di setiap slide.<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="prompt en"><span class="lang">EN</span>Create a 5-slide board-ready presentation titled "Legal &amp; Risk Update — May 2026" for the President Director of PT Contoso Minerals (Persero), sourced from the Legal Memo on Permen ESDM 7/2026 and the Executive Legal Dashboard findings. Slides: (1) Cover with date and "Confidential — Board Use Only", (2) Permen ESDM 7/2026 — 3 key changes and our compliance status, (3) Top 5 ongoing high-value litigations with exposure and forum, (4) Largest risks and proposed mitigations, (5) Asks and decisions required from the BOD. Corporate look — navy + white, Segoe UI. Add concise Indonesian-language speaker notes on every slide.<button class="copy" onclick="cp(this)">Copy</button></div>
   <div class="callout good"><b>Why this matters:</b> PowerPoint Copilot reuses the exact memo + dashboard you already built — no rework, no copy-paste, no risk of stale data on the executive deck.</div>
 </div>
 </div>
@@ -446,8 +483,11 @@ Tone: Professional, precise, formal Indonesian legal register.<button class="cop
   <h4>Test with realistic Indonesian legal questions</h4>
   <p>In the test pane on the right of Agent Builder, send these three prompts in sequence and check that every answer cites a specific file and clause:</p>
   <div class="prompt">Apa kewajiban divestasi saham bagi pemegang IUPK PMA berdasarkan SOP internal kita dan PP 96/2021?<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="prompt en"><span class="lang">EN</span>What are the share-divestment obligations for IUPK PMA holders under our internal SOP and PP 96/2021?<button class="copy" onclick="cp(this)">Copy</button></div>
   <div class="prompt">Klausul apa yang termasuk auto-reject pada review NDA berdasarkan M&A Playbook v4.0? Berikan minimal 5 contoh dengan alasannya.<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="prompt en"><span class="lang">EN</span>Which clauses are auto-reject on NDA review under M&amp;A Playbook v4.0? Give at least 5 examples with reasons.<button class="copy" onclick="cp(this)">Copy</button></div>
   <div class="prompt">Berapa total exposure litigasi grup untuk kasus jenis Sengketa Pertanahan? Sebutkan top 3 kasus tertinggi beserta Anak Holding-nya, status, dan claim amount.<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="prompt en"><span class="lang">EN</span>What is the group's total litigation exposure for Land Dispute (Sengketa Pertanahan) cases? List the top 3 highest cases with their Anak Holding, status, and claim amount.<button class="copy" onclick="cp(this)">Copy</button></div>
   <div class="callout good"><b>Publish &amp; share:</b> Once you're happy, click <b>Publish</b>. The agent now appears in M365 Copilot for your team. Share with the Corporate Legal Division — done in 15 minutes, zero code.</div>
 </div>
 
