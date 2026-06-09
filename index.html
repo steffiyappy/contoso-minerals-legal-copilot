@@ -552,8 +552,12 @@ if(sessionStorage.getItem("cm_ok")==="1"){
   document.getElementById("main").style.display="grid";
 }
 function cp(btn){
-  var t = btn.parentNode.innerText.replace(/Copy$/,"").trim();
-  navigator.clipboard.writeText(t).then(function(){
+  var p = btn.parentNode, t = "";
+  p.childNodes.forEach(function(n){
+    if(n.nodeType===3) t += n.nodeValue;
+    else if(n.nodeType===1 && !n.classList.contains("lang") && !n.classList.contains("copy")) t += n.innerText;
+  });
+  navigator.clipboard.writeText(t.trim()).then(function(){
     btn.classList.add("copied"); btn.textContent="Copied";
     setTimeout(function(){btn.classList.remove("copied");btn.textContent="Copy";},1500);
   });
